@@ -6,11 +6,12 @@ import { UpdateProviderComponent } from './update-provider/update-provider.compo
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component'; 
+import { AuthGaurdService } from './services/auth-guard.service';
 const routes: Routes = [
   { path: "", pathMatch: "full", redirectTo: "app-navbar" },
-  { path: "listProvider", component: ListProviderComponent },
-  { path: "addProvider", component: AddProviderComponent },
-  { path: "updateProvider/:id", component: UpdateProviderComponent },
+  { path: "listProvider", component: ListProviderComponent,canActivate[AuthGaurdService] },
+  { path: "addProvider", component: AddProviderComponent,canActivate[AuthGaurdService] },
+  { path: "updateProvider/:id", component: UpdateProviderComponent ,canActivate[AuthGaurdService] },
   { path: 'login', component: LoginComponent },
  { path: 'logout', component: LogoutComponent },
  { path: "**", component: PageNotFoundComponent },
