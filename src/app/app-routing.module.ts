@@ -9,12 +9,12 @@ import { LogoutComponent } from './logout/logout.component';
 import { AuthGaurdService } from './services/auth-guard.service';
 const routes: Routes = [
   { path: "", pathMatch: "full", redirectTo: "app-navbar" },
-  { path: "listProvider", component: ListProviderComponent,canActivate[AuthGaurdService] },
-  { path: "addProvider", component: AddProviderComponent,canActivate[AuthGaurdService] },
-  { path: "updateProvider/:id", component: UpdateProviderComponent ,canActivate[AuthGaurdService] },
+  { path: "listProvider", component: ListProviderComponent,canActivate:[AuthGaurdService as any]},
+  { path: "addProvider", component: AddProviderComponent,canActivate:[AuthGaurdService as any] },
+  { path: "updateProvider/:id", component: UpdateProviderComponent ,canActivate:[AuthGaurdService as any] },
   { path: 'login', component: LoginComponent },
- { path: 'logout', component: LogoutComponent },
- { path: "**", component: PageNotFoundComponent },
+ { path: 'logout', component: LogoutComponent,canActivate:[AuthGaurdService as any] },
+//  { path: "**", component: PageNotFoundComponent },
 ];
 
 @NgModule({
