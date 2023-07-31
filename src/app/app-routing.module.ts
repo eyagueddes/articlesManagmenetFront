@@ -7,6 +7,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component'; 
 import { AuthGaurdService } from './services/auth-guard.service';
+import { RegistrationComponent } from './registration/registration.component';
 const routes: Routes = [
   { path: "", pathMatch: "full", redirectTo: "app-navbar" },
   { path: "listProvider", component: ListProviderComponent,canActivate:[AuthGaurdService as any]},
@@ -14,7 +15,7 @@ const routes: Routes = [
   { path: "updateProvider/:id", component: UpdateProviderComponent ,canActivate:[AuthGaurdService as any] },
   { path: 'login', component: LoginComponent },
  { path: 'logout', component: LogoutComponent,canActivate:[AuthGaurdService as any] },
-//  { path: "**", component: PageNotFoundComponent },
+  { path: "register", component: RegistrationComponent },
 ];
 
 @NgModule({
