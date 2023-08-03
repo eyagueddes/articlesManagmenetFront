@@ -15,11 +15,11 @@ export class RegistrationService{
       'email': myform.value.email,
       'password':myform.value.password,
       'name': myform.value.name,
-      'lasName':myform.value.lasname,
+      'lastName':myform.value.lastName,
       'temp':myform.value.role
     }
     console.log('user',this.user)
-
+    
     return this.Http.post("http://localhost:8084/registration", this.user);
     
   }
