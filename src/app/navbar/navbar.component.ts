@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { AuthenticationService } from '../services/authentication.service';
 @Component({
   selector: 'app-navbar',
@@ -6,10 +6,23 @@ import { AuthenticationService } from '../services/authentication.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit{
-  constructor(public loginService: AuthenticationService) { }
+  nom : any = sessionStorage.getItem("nom");
+  prenom : any = sessionStorage.getItem("prenom");
+  @Input() fils: any;
+  @Output() eventToSend = new EventEmitter();
+  constructor(public loginService: AuthenticationService) {
+    console.log("constructor");
+  }
 
-  ngOnInit()  {
-   
+  ngOnChanges() {
+    console.log("valeur modifée est :" + this.fils);
+  }
+  ngOnInit() {
+    console.log("On init");
+  }
+
+  sendEvent() {
+    this.eventToSend.emit("Message du fils vers le pere");
   }
 
 }

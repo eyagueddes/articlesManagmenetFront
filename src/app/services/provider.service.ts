@@ -14,7 +14,7 @@ export class ProviderService {
   listProviders(){
     const headers=new HttpHeaders({ Authorization : this.basicToken});
     console.log(this.Http.get(this.urlProviders));//observable
-    return this.Http.get(this.urlProviders,{headers})
+    return this.Http.get(this.urlProviders+'list',{headers})
    
   }
 
@@ -30,7 +30,7 @@ export class ProviderService {
   }
   addProvider(provider:any){
     const headers=new HttpHeaders({ Authorization : this.basicToken});
-    return this.Http.post(this.urlProviders+'add',provider);
+    return this.Http.post(this.urlProviders+'add',provider,{headers});
 
   }
 

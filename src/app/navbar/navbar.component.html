@@ -10,7 +10,7 @@
       <a class="nav-item nav-link"  *ngIf="!loginService.isUserLoggedIn()"  routerLink="/login" routerLinkActive="active">Login</a>
       <a class="nav-item nav-link"  *ngIf="loginService.isUserLoggedIn()"   routerLink="/logout" routerLinkActive="active">LogOut</a>
       <a class="nav-item nav-link" routerLink="/register" *ngIf="!loginService.isUserLoggedIn()" routerLinkActive="active">Registration</a>
- 
+      <a class="nav-item nav-link" style="margin-left:700px" *ngIf="loginService.isUserLoggedIn()" routerLinkActive="active">Logged User: {{nom}} {{prenom}}</a>
     </div>
   </div>
 </nav>
